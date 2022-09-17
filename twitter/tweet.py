@@ -40,7 +40,7 @@ n_retweets=0
 hashtags
 while count >= 1:
     print('aaa')
-    time.sleep(1800)
+    time.sleep(300)
 
     for i in range(1,5):
         driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
