@@ -35,8 +35,6 @@ time.sleep(random.randint(3,15))
 hashtags=['peter obi','Arsenal','obidatti']
 ## hashtag Trend
 count =1
-n_tweets=0
-n_retweets=0
 hashtags
 while count >= 1:
     print('aaa')
@@ -49,19 +47,22 @@ while count >= 1:
     tweets=driver.find_elements(By.CSS_SELECTOR,'div[data-testid="like"]')
 
     for tweet in range(len(tweets)-1):
+        main_tweet=0
+        main_retweet =0
         try:
             driver.execute_script('arguments[0].click();',tweets[tweet])
-            n_tweets +=1
+            main_tweet +=1
             time.sleep(random.randint(3,25))
             retweets=(driver.find_elements(By.CSS_SELECTOR,'div[data-testid="retweet"]'))[tweet]
             driver.execute_script('arguments[0].click();',retweets)
             retweet=driver.find_element(By.CSS_SELECTOR,'div[data-testid="retweetConfirm"]')
             driver.execute_script('arguments[0].click();',retweet)
-            n_retweets+=1
+            main_retweet+=1
             time.sleep(random.randint(3,25)) 
             print('completed 1')
         except Exception as e:
             print(e)    
+    print(f'{main_tweet} tweet was liked  and {main_retweet} tweet was retweeted ')
         
 
     
@@ -70,6 +71,8 @@ while count >= 1:
     time.sleep(20)
     
     for hashtag in hashtags:
+        n_tweets=0
+        n_retweets=0
         driver.get(f'https://twitter.com/search?q={hashtag}&src=typed_query')
         time.sleep(4)
         for i in range(1,5):
