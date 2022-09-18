@@ -40,9 +40,9 @@ n_retweets=0
 hashtags
 while count >= 1:
     print('aaa')
-    time.sleep(300)
-
-    for i in range(1,5):
+    time.sleep(30)
+    print('bba')
+    for i in range(1,3):
         driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
         time.sleep(random.randint(5,10))
 
@@ -59,6 +59,7 @@ while count >= 1:
             driver.execute_script('arguments[0].click();',retweet)
             n_retweets+=1
             time.sleep(random.randint(3,25)) 
+            print('completed 1')
         except Exception as e:
             print(e)    
         
