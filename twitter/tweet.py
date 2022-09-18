@@ -44,7 +44,7 @@ while count >= 1:
         driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
         time.sleep(random.randint(5,10))
 
-    tweets=driver.find_elements(By.CSS_SELECTOR,'div[data-testid="like"]')
+    tweets=driver.find_elements(By.CSS_SELECTOR,'div[data-testid="cellInnerDiv"]')
     main_tweet=0
     main_retweet =0
     for tweet in range(len(tweets)-1):
