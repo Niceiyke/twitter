@@ -45,10 +45,10 @@ while count >= 1:
         time.sleep(random.randint(5,10))
 
     tweets=driver.find_elements(By.CSS_SELECTOR,'div[data-testid="like"]')
-
+    main_tweet=0
+    main_retweet =0
     for tweet in range(len(tweets)-1):
-        main_tweet=0
-        main_retweet =0
+      
         try:
             driver.execute_script('arguments[0].click();',tweets[tweet])
             main_tweet +=1
@@ -69,10 +69,10 @@ while count >= 1:
 
     driver.get('https://twitter.com')
     time.sleep(20)
-    
+    n_tweets=0
+    n_retweets=0    
     for hashtag in hashtags:
-        n_tweets=0
-        n_retweets=0
+
         driver.get(f'https://twitter.com/search?q={hashtag}&src=typed_query')
         time.sleep(4)
         for i in range(1,5):
